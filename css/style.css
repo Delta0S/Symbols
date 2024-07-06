@@ -11,7 +11,13 @@
     --spring-duration: 0.3s;
 }
 
-/* Global styles */
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -23,6 +29,7 @@ body, html {
     min-height: 100vh;
 }
 
+/* Typography */
 .title {
     text-align: center;
     color: var(--text-color);
@@ -31,7 +38,7 @@ body, html {
     font-weight: bold;
 }
 
-/* Table styles */
+/* Table Styles */
 table {
     margin: 1rem auto;
     min-width: 200px;
@@ -52,7 +59,7 @@ th, td {
     border-radius: 5px;
 }
 
-/* Button styles */
+/* Button Styles */
 button {
     color: var(--dark-color);
     font-weight: 600;
@@ -67,13 +74,13 @@ button {
 
 button:hover:not(:active),
 button.active {
-    scale: 1.1;
+    transform: scale(1.1);
     box-shadow: 0 4px 8px -2px hsl(var(--glow-hue) 50% 20% / 50%), inset 0 0 0 transparent;
     transition-duration: calc(var(--spring-duration) * 0.5);
 }
 
 button:active {
-    scale: 1.05;
+    transform: scale(1.05);
     transition-duration: calc(var(--spring-duration) * 0.5);
 }
 
@@ -132,7 +139,7 @@ button.active .text {
     animation: text 0.66s ease-in 1 both;
 }
 
-/* Container styles */
+/* Container Styles */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -163,7 +170,7 @@ button.active .text {
     display: block;
 }
 
-/* Navbar styles */
+/* Navbar Styles */
 .container-fluid {
     display: flex;
     justify-content: space-between;
@@ -204,7 +211,7 @@ button.active .text {
     display: block;
 }
 
-/* Footer styles */
+/* Footer Styles */
 .footer-container {
     text-align: center;
     padding: 15px;
@@ -236,7 +243,7 @@ button.active .text {
     font-size: 0.75em;
 }
 
-/* Media queries */
+/* Media Queries */
 @media (max-width: 768px) {
     table {
         width: 100%;
@@ -251,5 +258,33 @@ button.active .text {
 
     .container {
         justify-content: center;
+    }
+}
+
+/* Animations */
+@keyframes shimmer {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shine {
+    from {
+        background-position: center 200%;
+    }
+    to {
+        background-position: center 50%;
+    }
+}
+
+@keyframes text {
+    from {
+        background-position: center 200%;
+    }
+    to {
+        background-position: center 50%;
     }
 }
